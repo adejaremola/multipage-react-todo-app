@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Navbar.css';      
+import { NavLink } from "react-router-dom";
 
 class Navbar extends Component {
     constructor(props) {
@@ -12,13 +13,23 @@ class Navbar extends Component {
     }
     
     render() {
+        const s = {
+            textDecoration: 'none',
+            cursor: 'default',
+            color: 'pink'
+        }
+        
         return (
             <ul class="nav nav-pills nav-justified">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">ToDoApp</a>
+                    <NavLink exact activeStyle={ s } to="/" >
+                        ToDoApp
+                    </NavLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Add ToDo</a>
+                    <NavLink exact activeStyle={ s } to="/todo/create" >
+                        Add ToDo
+                    </NavLink>
                 </li>
             </ul>
         )

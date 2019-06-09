@@ -4,15 +4,15 @@ import Todo from './Todo';
 
 class TodoList extends Component {
     render() {
-        const todos = this.props.todos.map((t) => (
-            <Todo 
-                key={ t.id }
-                { ...t }
-            />
-        ))
+        // const todos = this.props.todos.map((t) => (
+        //     <Todo 
+        //         key={ t.id }
+        //         { ...t }
+        //     />
+        // ))
         return (
             <div className="todo-list">
-                { todos }
+                This is a todo List
             </div>
         )
     }

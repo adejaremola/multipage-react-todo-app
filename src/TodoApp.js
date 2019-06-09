@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar';
-import TodoList from './TodoList';
-import './TodoApp.css';
+import SwitchPages from './SwitchPages';
+import Navbar from "./Navbar";
+import { Link } from 'react-router-dom';
 
 class TodoApp extends Component {
   constructor(props) {
@@ -35,10 +35,17 @@ class TodoApp extends Component {
   
   render() {
     const { todos } = this.state;
+    const s = {
+        textDecoration: 'none',
+        cursor: 'default',
+        color: 'pink'
+    }
     return (
-      <div className="App">
+      <div className="App">        
         <Navbar />
-        <TodoList todos={ todos }/>
+        <div>
+          <SwitchPages />
+        </div>
       </div>
     );
   }
