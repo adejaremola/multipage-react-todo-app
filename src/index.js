@@ -6,7 +6,6 @@ import {
     BrowserRouter as Router 
 } from "react-router-dom";
 import TodoApp from './TodoApp';
-import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
     <Router> 
@@ -14,4 +13,3 @@ ReactDOM.render(
     </Router>, 
     document.getElementById('root')
 );
-registerServiceWorker();

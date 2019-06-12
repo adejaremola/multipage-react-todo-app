@@ -4,13 +4,21 @@ import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
 
 
-const todoList = () => ( <TodoList /> );
-const todoForm = () => ( <TodoForm /> );
-
-const SwitchPages = () => (
+const SwitchPages = (todoProp) => (
     <Switch>
-        <Route exact path="/" component={ todoList } />
-        <Route path="/todo/create" component={ todoForm } />
+        <Route exact path="/" render={ props => (
+                <TodoList { ...props } todos={ todoProp.todos } />
+            )}  
+        />
+        <Route exact path="/todo/create" render={ props => (
+                <TodoForm 
+                    { ...props } 
+                    onFormSubmit={ (todo) => (
+                        todoProp.onTodoSave(todo)
+                    ) }
+                />
+            )}             
+        />
     </Switch>
 )
 

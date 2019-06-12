@@ -8,7 +8,8 @@ class TodoApp extends Component {
     super(props);
     
     this.state = {
-      todos: []
+      todos: [],
+      nextTodoId: ''
     }
   }
   
@@ -29,12 +30,25 @@ class TodoApp extends Component {
           timeCreated: '',
           timeDue: ''
         }
-      ]
+      ],
+      nextTodoId: 3
+    })
+  }
+
+  handleTodoSave = (todo) => {
+    this.setState((prevState, props) => {
+        //Create the new todo first
+        const newTodo = { ...todo, id: this.state.nextTodoId };
+        //Now return the changes you want in the state
+        return {
+            nextTodoId: prevState.nextTodoId + 1,
+            todos: [ ...this.state.todos, newTodo ]
+        }
     })
   }
   
   render() {
-    const { todos } = this.state;
+    // const { todos, nextTodoId } = this.state;
     const s = {
         textDecoration: 'none',
         cursor: 'default',
@@ -44,7 +58,10 @@ class TodoApp extends Component {
       <div className="App">        
         <Navbar />
         <div>
-          <SwitchPages />
+          <SwitchPages 
+            { ...this.state }
+            onTodoSave={ this.handleTodoSave } />
+          {/* <SwitchPages todos={ todos } nextTodoId={ nextTodoId } /> */}
         </div>
       </div>
     );

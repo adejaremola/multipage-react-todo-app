@@ -8,7 +8,7 @@ class Navbar extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(e) {
+    handleClick = (e) => {
         e.target.preventDefault;
     }
     
